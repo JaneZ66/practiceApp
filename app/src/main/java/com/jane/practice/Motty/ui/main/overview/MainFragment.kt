@@ -1,4 +1,4 @@
-package com.jane.practice.Motty.ui.main
+package com.jane.practice.Motty.ui.main.overview
 
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
@@ -11,7 +11,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.jane.practice.Motty.R
 import com.jane.practice.Motty.data.entities.MortyCharacter
-import com.jane.practice.Motty.ui.main.CharacterAdapter.OnItemClickListener
+import com.jane.practice.Motty.ui.main.overview.CharacterAdapter.OnItemClickListener
+import com.jane.practice.Motty.ui.main.details.DetailsFragment
 
 class MainFragment : Fragment() {
 
@@ -31,13 +32,12 @@ class MainFragment : Fragment() {
         adapter = CharacterAdapter(object : OnItemClickListener {
             override fun onItemClick(item: MortyCharacter) {
                 val detailsFragment = DetailsFragment()
-//                val bundle = Bundle()
-//                bundle.putInt("Character_id", item.id)
-//                detailsFragment.arguments = bundle
-                Log.d("Jane", "OnclickListener for " + item.id)
-                detailsFragment.setData(item)
+                val bundle = Bundle()
+                bundle.putInt("Character_id", item.id)
+                detailsFragment.arguments = bundle
+                //detailsFragment.setData(item)
                 if (activity != null) {
-                    Log.d("Jane", "details != null")
+                    Log.d("Jane", " bundle " + bundle.getInt("Character_id"))
                     activity!!.supportFragmentManager.beginTransaction()
                         .replace(R.id.main, detailsFragment)
                         .addToBackStack(null)

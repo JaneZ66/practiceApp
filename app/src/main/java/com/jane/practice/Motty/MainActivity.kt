@@ -2,7 +2,7 @@ package com.jane.practice.Motty
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.jane.practice.Motty.ui.main.MainFragment
+import com.jane.practice.Motty.ui.main.overview.MainFragment
 
 class MainActivity : AppCompatActivity() {
 
